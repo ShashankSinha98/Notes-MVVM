@@ -50,4 +50,5 @@ ViewModel is only removed from memory when lifecycle of activity/fragment is ove
 
 <br />
 <br />
-Credits- [CodingInFlow](https://www.youtube.com/channel/UC_Fh8kvtkVPkeihBs42jGcA)
+
+Credits- [Coding In Flow](https://www.youtube.com/channel/UC_Fh8kvtkVPkeihBs42jGcA)
