@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".AddEditNoteActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".MainActivity"
+                android:launchMode="singleTop"><!-- launchMode="singleTop"bcz if we click back button, it'll open MainActivity again and call onCreate
+                                                method-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

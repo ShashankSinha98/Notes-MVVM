@@ -24,7 +24,7 @@ public class Note {
     //@ColumnInfo(name = "priority_column") -  for custom column name in table
     private int priority;
 
-    public Note(String title, String description, int priority) { // Id will be automaticaally generated, not set by us
+    public Note(String title, String description, int priority) { // Id will be auto-maticaally generated, not set by us
         this.title = title;
         this.description = description;
         this.priority = priority;

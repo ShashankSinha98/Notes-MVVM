@@ -15,9 +15,10 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import es.dmoral.toasty.Toasty;
 
-public class AddNoteActivity extends AppCompatActivity {
+public class AddEditNoteActivity extends AppCompatActivity {
 
     // psfs
+    public static final String EXTRA_ID  = "com.example.notesmvvm.EXTRA_ID";
     public static final String EXTRA_TITLE  = "com.example.notesmvvm.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION  = "com.example.notesmvvm.EXTRA_DESCRIPTION";
     public static final String EXTRA_PRIORITY = "com.example.notesmvvm.EXTRA_PRIORITY";
@@ -39,7 +40,19 @@ public class AddNoteActivity extends AppCompatActivity {
         numberPickerPriority.setMaxValue(10);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_24);
-        setTitle("Add Note");
+
+        Intent intent = getIntent();
+
+        if(intent.hasExtra(EXTRA_ID)){
+            // Update
+            setTitle("Edit Note");
+            textInputLayoutTitle.getEditText().setText(intent.getStringExtra(EXTRA_TITLE));
+            textInputLayoutDescription.getEditText().setText(intent.getStringExtra(EXTRA_DESCRIPTION));
+            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
+        } else {
+            // Add
+            setTitle("Add Note");
+        }
     }
 
     @Override
@@ -79,6 +92,11 @@ public class AddNoteActivity extends AppCompatActivity {
         data.putExtra(EXTRA_TITLE,title);
         data.putExtra(EXTRA_DESCRIPTION,description);
         data.putExtra(EXTRA_PRIORITY,priority);
+
+        int id = getIntent().getIntExtra(EXTRA_ID,-1); // No entry in table will have id = -1
+        if(id != -1){
+            data.putExtra(EXTRA_ID,id);
+        }
 
         // RESULT_OK - integer constant indicating that data is given back by this activity
         setResult(RESULT_OK,data);

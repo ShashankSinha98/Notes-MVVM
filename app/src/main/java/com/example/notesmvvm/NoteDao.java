@@ -38,7 +38,7 @@ public interface NoteDao {
 
 
     @Query("DELETE FROM note_table") // Custom query for deleting all rows from table - any typo will lead to compile time error
-    void deleteAllNotes();            // which was not case in SQLite OpenHelper class, we can still open app - leading to crash
+    void DeleteAllNotes();            // which was not case in SQLite OpenHelper class, we can still open app - leading to crash
 
 
 
