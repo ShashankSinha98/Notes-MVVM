@@ -45,7 +45,7 @@ ViewModel is only removed from memory when lifecycle of activity/fragment is ove
 
 ### 4. Features -
 - Add Note
-- Delete Note - Swipe
+- Delete Note - Swipe (Implemented using DiffUtil)
 - Edit Note
 
 <br />
